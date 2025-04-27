@@ -13,7 +13,7 @@ class AttendanceAPITester:
 
     def run_test(self, name, method, endpoint, expected_status, data=None):
         """Run a single API test"""
-        url = f"{self.base_url}/api/{endpoint}"
+        url = f"{self.base_url}/{endpoint}"
         headers = {'Content-Type': 'application/json'}
         if self.token:
             headers['Authorization'] = f'Bearer {self.token}'
