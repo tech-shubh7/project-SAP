@@ -25,7 +25,11 @@ class AttendanceAPITester:
             if method == 'GET':
                 response = requests.get(url, headers=headers)
             elif method == 'POST':
-                response = requests.post(url, json=data, headers=headers)
+                if endpoint == 'login':
+                    # For login, use form data
+                    response = requests.post(url, data=data)
+                else:
+                    response = requests.post(url, json=data, headers=headers)
             elif method == 'PUT':
                 response = requests.put(url, json=data, headers=headers)
 
